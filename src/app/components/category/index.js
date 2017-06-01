@@ -1,26 +1,25 @@
 import React from 'react'
 import RecipiesList from '../recipies-list';
+import Recipes from '../../models/recipes.js';
 
 export default class Category extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {data: []};
+        this.state = { data: [] };
     }
 
     componentDidMount() {
-        fetch('http://localhost:3000/'+this.props.match.params.slug)
-            .then(function (response) {
-                return response.json();
-            })
+        Recipes.getCategory(this.props.match.params.slug)
             .then((data) => {
-                this.setState({data});
-            });
+                this.setState({ data });
+            })
+            .catch((err) => console.log('error'));
     }
 
-    render () {
+    render() {
         return (<div className="row">
-            {(this.state.data) ? <RecipiesList recipies={this.state.data}/>: 'loading...'}
+            {(this.state.data) ? <RecipiesList recipies={this.state.data} /> : 'loading...'}
         </div>);
     }
 }
