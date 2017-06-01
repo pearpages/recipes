@@ -7,6 +7,7 @@ import Category from './components/category';
 import data from '../data/data.json';
 import CategoriesColumn from './components/categories-column';
 import Recipe from './components/recipe';
+import RecipeEdit from './components/recipe-edit';
 
 export default class App extends React.Component {
     render() {
@@ -21,7 +22,7 @@ export default class App extends React.Component {
 export class Main extends React.Component {
     render() {
         return (
-            <div>
+            <div className="container">
                 <nav>
                     <ul>
                         <li><Link to='/'>Home</Link></li>
@@ -35,7 +36,8 @@ export class Main extends React.Component {
                         <Switch>
                             <Route exact path='/' component={(props) => <Home data={data} />} />
                             <Route path='/category/:slug' component={(props) => <Category {...props} />} />
-                            <Route path='/recipe/:id' component={(props) => <Recipe {...props} />} />
+                            <Route exact path='/recipe/:id' component={(props) => <Recipe {...props} />} />
+                            <Route path='/recipe/:id/edit' component={(props) => <RecipeEdit {...props} />} />
                         </Switch>
                     </div>
                 </div>

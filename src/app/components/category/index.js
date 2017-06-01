@@ -14,7 +14,7 @@ export default class Category extends React.Component {
             .then((data) => {
                 this.setState({ data });
             })
-            .catch((err) => console.log('error'));
+            .catch((err) => true);
     }
 
     render() {

@@ -1,5 +1,6 @@
 import React from 'react';
 import Recipes from '../../models/recipes';
+import {Link} from 'react-router-dom';
 
 export default class Recipe extends React.Component {
 
@@ -11,7 +12,7 @@ export default class Recipe extends React.Component {
                 this.setState({ data });
             })
             .catch((err) => {
-                console.log('error caught');
+                // ...
             });
     }
 
@@ -20,6 +21,7 @@ export default class Recipe extends React.Component {
         return (<div>
             {(r) ? <div>
                 <h3>{r.title} ({r.id})</h3>
+                <Link className="btn btn-default" to={"/recipe/"+r.id+"/edit"}>Edit</Link>
                 <div>{r.author}</div>
                 <img src={"/images/recipies/"+r.picture} alt={r.title} />
                 <h4>Descripción</h4>
