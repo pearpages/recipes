@@ -6,8 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:dev": "webpack -w",
-    "start": "npm run serve:dev",
-    "serve:dev": "webpack-dev-server --content-base public/"
+    "start": "concurrently \"npm run backend\" \"npm run serve:dev\"",
+    "serve:dev": "webpack-dev-server",
+    "backend": "json-server ./src/data/data.json"
   },
   "author": "",
   "license": "ISC",
@@ -28,6 +29,7 @@
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.11.1",
     "json-loader": "^0.5.4",
+    "json-server": "^0.10.1",
     "node-sass": "^4.5.2",
     "npm-run-all": "^4.0.2",
     "sass-loader": "^6.0.3",

@@ -7,6 +7,12 @@ module.exports = {
         path: __dirname + '/public',
         filename: 'bundle.js'
     },
+    devServer: {
+        contentBase: "./public",
+        historyApiFallback: {
+            index: 'index.html'
+        }
+    },
     module: {
         loaders: [
             {
