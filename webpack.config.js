@@ -13,6 +13,9 @@ module.exports = {
             index: 'index.html'
         }
     },
+    watchOptions: {
+        ignored: __dirname + '/src/data/data.json'
+    },
     module: {
         loaders: [
             {
